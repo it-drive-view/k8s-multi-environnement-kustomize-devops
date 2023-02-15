@@ -1,0 +1,19 @@
+pour faire tourner l'application :
+
+1- s'assurer que vous avez deux namespaces 'dev' et 'prod' dans votre cluster
+
+2- se placer dans un des répertoires de surcharge, par exemple:
+/git/k8s-java-display-platform-using-kustomization/overlays/prod
+
+3- taper la commande:
+kubectl apply -k .
+
+3- récupérer l'adresse IP d'un des noeuds du cluster avec la commande
+kubectl get nodes -o wide
+
+5- dans le namespace prod, récupérer le NodePort du service qui expose le/les pods
+kubectl -n prod get svc
+
+6- dans un browser, taper l'adresse du [node-ip-address] + [nodePort]
+par exemple :
+http://192.168.49.2:32669/
